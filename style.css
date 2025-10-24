@@ -1,0 +1,506 @@
+/* style.css */
+/* ========== Reset & Base ========== */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+html, body { 
+    scroll-behavior: smooth; 
+}
+body {
+    font-family: "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+    color: #111827;
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 16px; 
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; }
+
+/* ========== Variables ========== */
+:root {
+    --primary-color: #0b1220; /* 진한 네이비 */
+    --secondary-color: #ff9900; /* 오렌지/골드 */
+    --text-dark: #111827;
+    --text-light: #e5e7eb;
+    --bg-light: #f8fafc; /* 밝은 배경 */
+    --bg-dark: #0f172a; /* 어두운 배경 */
+    --whyus-btn-bg: #1f2937; /* 버튼 배경색 추가 */
+}
+
+/* ========== Layout Helpers ========== */
+.container { 
+    max-width: 1280px; /* 1100px -> 1280px로 변경 */
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+.text-center { text-align: center; }
+.section-padded { 
+    padding: 80px 0; 
+}
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+.lead {
+    font-size: 20px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+.bg-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+.bg-dark .section-title {
+    color: var(--text-light);
+}
+.bg-dark .lead {
+    color: #9ca3af;
+}
+
+/* ========== Buttons ========== */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+.btn-primary:hover {
+    background-color: #ffb74d;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+.btn-secondary:hover {
+    background-color: var(--whyus-btn-bg); /* 어두운 배경에 맞게 조정 */
+    transform: translateY(-2px);
+}
+
+/* ========== Header & Navigation ========== */
+.site-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+}
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img {
+    height: 30px; 
+    width: auto;
+}
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+}
+.main-nav a {
+    padding: 10px 0;
+    transition: color 0.3s;
+    position: relative;
+}
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--secondary-color);
+}
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+.language-selector select {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ========== Hero Section (index.html) ========== */
+#home-hero {
+    min-height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    position: relative;
+    /* 오버레이 추가 */
+}
+#home-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+    z-index: 1;
+}
+#home-hero .container {
+    z-index: 2;
+}
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+.hero-subtitle {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+.hero-btns a {
+    margin: 0 10px;
+}
+
+/* ========== Home - Features Section (index.html) ========== */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-item {
+    background-color: #ffffff; /* 흰색 배경 */
+    border: 1px solid #e5e7eb;
+    /* 요청 1: 높이 75%로 줄이기 위해 패딩 조정 */
+    padding: 30px; /* 기존 40px 가정 시 75% 수준으로 조정 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-item h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #4b5563;
+    /* 요청 2: 줄바꿈 시 단어가 끊어지지 않도록 설정 */
+    word-break: keep-all; 
+}
+
+
+/* ========== Why Us Section (index.html) & CTA Section (services.html) ========== */
+#why-us .lead, #cta .lead {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#why-us p {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #4b5563;
+}
+#cta {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+#cta .section-title, #cta .lead {
+    color: var(--text-light);
+}
+
+/* ========== About - Team Section (about.html) ========== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.manager-item {
+    text-align: center;
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.manager-item img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.manager-item h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+.manager-item em {
+    display: block;
+    font-style: normal;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.manager-item p {
+    font-size: 15px;
+    color: #4b5563;
+}
+
+/* ========== Services - Service Grid (services.html) ========== */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.service-item {
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+}
+.service-item:hover {
+    background-color: var(--bg-light);
+}
+.service-item i {
+    font-size: 36px;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+.service-item h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+.service-item p {
+    color: #4b5563;
+}
+
+/* ========== Contact - Form & Info (contact.html) ========== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    margin-top: 30px;
+}
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-dark);
+}
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+.contact-form button {
+    margin-top: 20px;
+    width: 100%;
+}
+.contact-info {
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 8px;
+}
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+.contact-item i {
+    font-size: 24px;
+    color: var(--secondary-color);
+    padding-top: 2px;
+}
+.contact-item p {
+    margin: 0;
+    line-height: 1.4;
+    color: #4b5563;
+}
+.map-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+/* ========== Footer ========== */
+.site-footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 40px 0 20px;
+    font-size: 15px;
+}
+.footer-offices {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2fr 1fr -> 1fr 1fr로 변경 */
+    gap: 30px;
+    text-align: left; /* left로 유지 */
+    padding-bottom: 20px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-offices h3 {
+    margin: 0 0 10px; 
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+.footer-office-info p {
+    margin-bottom: 5px;
+}
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.footer-links a {
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+@media (max-width: 900px) {
+    .header-inner {
+        flex-wrap: wrap;
+        min-height: initial;
+        padding: 10px 20px;
+    }
+    .main-nav {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .main-nav ul {
+        justify-content: center;
+        gap: 15px;
+    }
+    .language-selector {
+        margin-left: auto; /* 언어 선택 버튼을 오른쪽으로 */
+    }
+    .hero-title {
+        font-size: 40px;
+    }
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-btns a {
+        margin: 0;
+    }
+    .section-padded { 
+        padding: 60px 0; 
+    }
+    .section-title { 
+        font-size: 30px;
+    }
+    .lead {
+        font-size: 18px;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-offices {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-links {
+        margin-top: 20px;
+    }
+    .footer-links ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    .feature-grid, .team-grid, .service-grid {
+        grid-template-columns: 1fr;
+    }
+    .manager-item img {
+        max-width: 120px;
+    }
+}
