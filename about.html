@@ -25,63 +25,82 @@
             </nav>
             <div class="language-selector">
                 <label for="languageSelect" class="sr-only">언어 선택</label>
-                <select id="languageSelect">
-                    <option value="ko">한국어</option>
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
+                <select id="languageSelect" aria-label="언어 선택">
+                    <option value="ko" selected>KR 한국어</option>
+                    <option value="en">EN English</option>
+                    <option value="es">ES Español</option>
+                    <option value="zh">ZH 中文</option>
                 </select>
             </div>
         </div>
     </header>
 
     <main>
-        <section id="about-hero" class="hero page-hero" style="background-image: url('resized_1.jpg');">
-            <div class="hero-content page-hero-content">
-                <h1 data-translate="aboutHeroTitle">글로벌 해운을 선도하는 파트너</h1>
-                <p data-translate="aboutHeroSubtitle">글로벌 네트워크와 전문성을 통해 선박 보급의 새로운 기준을 제시합니다.</p>
+        <section class="page-hero" style="background-image: url('resized_2.jpg');">
+            <div class="page-hero-content">
+                <h1 data-translate="about">회사 소개</h1>
+                <p data-translate="aboutHeroDesc">한국과 파나마를 잇는 글로벌 선박 보급 네트워크</p>
             </div>
         </section>
 
-        <section id="overview" class="section-padded">
-            <div class="container">
-                <h2 class="section-title">회사 개요</h2>
-                <p class="lead" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">NEO MARITIME SERVICE는 파나마와 한국에 사무소를 두고 있는 글로벌 선박 보급 및 물류 전문 기업입니다. 양국의 독자적인 네트워크와 20년 이상 경력의 전문 경영진을 바탕으로, 선박 보급의 전 과정을 책임감 있게 수행하며 고객의 성공적인 항해를 지원합니다.</p>
-                
-                <div class="grid-container" style="justify-content: space-around;">
-                    <div class="value-item" style="flex: 1 1 250px;">
-                        <i class="fas fa-globe-asia"></i>
-                        <h4>글로벌 네트워크</h4>
-                        <p>파나마와 한국을 잇는 독자적인 네트워크를 통해 신속하고 안정적인 서비스를 제공합니다.</p>
-                    </div>
-                    <div class="value-item" style="flex: 1 1 250px;">
-                        <i class="fas fa-handshake"></i>
-                        <h4>파트너십 중심</h4>
-                        <p>단순한 거래가 아닌 장기적인 신뢰를 바탕으로 고객 중심의 솔루션을 구축합니다.</p>
-                    </div>
-                    <div class="value-item" style="flex: 1 1 250px;">
-                        <i class="fas fa-certificate"></i>
-                        <h4>품질 표준</h4>
-                        <p>모든 공급 제품은 국제 해운 및 물류 규격에 부합하는 최고 품질만을 고집합니다.</p>
-                    </div>
+        <section id="mission" class="section-padded container text-center">
+            <h2 class="section-title" data-translate="missionTitle">우리의 미션</h2>
+            <div class="grid-container">
+                <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4 data-translate="missionFastTitle">신속하고 정확한 서비스</h4>
+                    <p data-translate="missionFastDesc">고객의 요청사항을 24시간 신속하고 정확한 서비스를 제공합니다.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-award"></i>
+                    <h4 data-translate="missionQualityTitle">신뢰와 품질 중심의 서비스</h4>
+                    <p data-translate="missionQualityDesc">HACCP 기준을 준수하는 엄격한 위생 및 품질 관리 시스템을 운영합니다.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users-cog"></i>
+                    <h4 data-translate="missionPartnerTitle">파트너십 기반의 성장</h4>
+                    <p data-translate="missionPartnerDesc">고객의 성공을 목표로 장기적 신뢰 관계를 구축해 함께 성장합니다.</p>
                 </div>
             </div>
         </section>
 
-        <section id="management" class="section-padded section-light">
+        <section id="value" class="section-padded section-light container text-center">
+            <h2 class="section-title" data-translate="valueTitle">핵심 가치</h2>
+            <div class="grid-container">
+                <div class="value-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4 data-translate="valueTrustTitle">신뢰성</h4>
+                    <p data-translate="valueTrustDesc">약속된 시간에, 약속된 품질을 제공합니다.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <h4 data-translate="valueGlobalTitle">글로벌 네트워크</h4>
+                    <p data-translate="valueGlobalDesc">파나마와 한국을 잇는 독보적인 글로벌 공급망을 갖추고 있습니다.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-user-check"></i>
+                    <h4 data-translate="valueCustomerTitle">고객 중심</h4>
+                    <p data-translate="valueCustomerDesc">고객의 요구를 최우선으로 하여 맞춤형 서비스를 제공합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="management" class="section-padded">
             <div class="container text-center">
                 <h2 class="section-title" data-translate="managementTitle">경영진 소개</h2>
+                <p class="lead" data-translate="managementLead">숙련된 전문가들이 귀사의 안전한 항해를 지원합니다.</p>
                 <div class="management-grid">
                     <div class="manager-item">
                         <img src="panamaCEO.jpg" alt="한종훈 대표">
-                        <h4>한종훈 대표 (Han Jonghun)</h4>
-                        <em>파나마 CEO</em>
-                        <p>글로벌 해운 및 물류 분야 20년 이상 경력의 전문가로 NEO MARITIME SERVICE를 이끌며 글로벌 네트워크 확장에 집중하고 있습니다.</p>
+                        <h4 data-translate="managerHanTitle">한종훈 대표 (Han Jonghun)</h4>
+                        <em data-translate="managerHanRole">파나마 CEO</em>
+                        <p data-translate="managerHanDesc">글로벌 해운 및 물류 분야 20년 이상 경력의 전문가로 NEO MARITIME SERVICE를 이끌며 글로벌 네트워크 확장에 집중하고 있습니다.</p>
                     </div>
                     <div class="manager-item">
                         <img src="koreaCEO.jpg" alt="김경희 대표"> 
-                        <h4>김경희 대표 (Kim Kyunghee)</h4>
-                        <em>한국 CEO</em>
-                        <p>한국 물류회사 대표 및 20년 이상 경력의 선박 전문가로 한국 운영을 총괄하며 효율적이고 체계적인 보급 서비스를 제공합니다.</p>
+                        <h4 data-translate="managerKimTitle">김경희 대표 (Kim Kyunghee)</h4>
+                        <em data-translate="managerKimRole">한국 CEO</em>
+                        <p data-translate="managerKimDesc">한국 물류회사 대표 및 20년 이상 경력의 선박 전문가로 한국 운영을 총괄하며 효율적이고 체계적인 보급 서비스를 제공합니다.</p>
                     </div>
                 </div>
             </div>
@@ -98,9 +117,9 @@
                 <p>🇰🇷 광주광역시 광산구 목련로 394번길 64 | Tel: +82 62 952 8085 | Emergency: +82 10 4124 6955 | Email: korea@neomaritimeservice.com</p>
                 <p>🇵🇦 Calle 63a oeste 23, Panama, Provincia de Panama | Tel: +507 372 3929 | Emergency: +507 6831 6708 | Email: panama@neomartime.com</p>
             </div>
-            </div>
-        <div class="container copyright">
-            &copy; 2024 NEO MARITIME SERVICE. All rights reserved.
+        </div>
+        <div class="copyright">
+            © 2025 NEO MARITIME SERVICE. All rights reserved.
         </div>
     </footer>
 </body>
